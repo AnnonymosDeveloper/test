@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th class="time-header">time</th>
+          <th>السبت</th>
+          <th>الأحد</th>
+          <th>الاثنين</th>
+          <th>الثلاثاء</th>
+          <th>الأربعاء</th>
+          <th>الخميس</th>
+          <th>الجمعة</th>
+        </tr>
+      </thead>
+      <tbody>
+        <script>
+          let startHour = 9;
+          let endHour = 24; // Midnight
+          let times = [];
+          for (let h = startHour; h <= endHour; h++) {
+            times.push(`${h}:00-${h}:30`);
+            times.push(`${h}:30-${h + 1}:00`);
+          }
+
+          times.forEach((time) => {
+            document.write(`
+                            <tr>
+                                <td class="time-slot">${time}</td>
+                                <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td>
+                            </tr>
+                        `);
+          });
+        </script>
+      </tbody>
+    </table>
+    <script src="./main.js"></script>
+  </body>
+</html>
